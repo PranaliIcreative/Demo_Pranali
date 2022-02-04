@@ -1,0 +1,64 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="pranali_work.list">
+      <field name="name">pranali_work list</field>
+      <field name="model">pranali_work.pranali_work</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+          <field name="description"/>
+          <field name="age"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="pranali_work.action_window">
+      <field name="name">pranali_work window</field>
+      <field name="res_model">pranali_work.pranali_work</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="pranali_work.action_server">
+      <field name="name">pranali_work server</field>
+      <field name="model_id" ref="model_pranali_work_pranali_work"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="pranali_work" id="pranali_work.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="pranali_work.menu_1" parent="pranali_work.menu_root"/>
+    <menuitem name="Menu 2" id="pranali_work.menu_2" parent="pranali_work.menu_root"/>
+    <menuitem name="Menu 3" id="pranali_work.menu_3" parent="pranali_work.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="pranali_work.menu_1_list" parent="pranali_work.menu_1"
+              action="pranali_work.action_window"/>
+    <menuitem name="Server to list" id="pranali_work" parent="pranali_work.menu_2"
+              action="pranali_work.action_server"/>
+    <menuitem name="Server to list" id="pranali_w" parent="pranali_work.menu_3"
+              action="pranali_work.action_server"/>
+
+  </data>
+</odoo>
