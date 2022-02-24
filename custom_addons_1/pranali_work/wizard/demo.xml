@@ -1,0 +1,48 @@
+<odoo>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="wizard_demo_form">
+        <field name="name">wizard_demo form</field>
+        <field name="model">wizard.demo</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name_wizard"/>
+                </group>
+                <footer>
+                    <button name="submit_button" type="object" string="Submit" class="btn-info"/>
+                    <button name="cancel_button" type="object" string="Cancel"/>
+                </footer>
+
+            </form>
+        </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="wizard_demo_action_window">
+        <field name="name">wizard demo window</field>
+        <field name="res_model">wizard.demo</field>
+        <field name="view_id" ref="wizard_demo_form"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <!--    <menuitem name="menu 3" id="wizard_demo_menu_root" parent="pranali_work_menu_root"/>-->
+
+    <!-- menu categories -->
+
+    <!--    <menuitem name="Menu 3" id="wizard_demo_menu_1" parent="wizard_demo_menu_root"/>-->
+
+
+    <!-- actions -->
+
+    <menuitem name="popup" id="wizard_demo_menu_1_form" parent="pranali_work_menu_2"
+              action="wizard_demo_action_window"/>
+
+
+</odoo>

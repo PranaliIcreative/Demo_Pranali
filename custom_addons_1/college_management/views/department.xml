@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <record id="department_name_list" model="ir.ui.view" >
+            <field name="name">Department Name list</field>
+            <field name="model">department.names</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name_department"/>
+                    <field name="departmentId"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+        <record model="ir.ui.view" id="department_name_form">
+          <field name="name">Department Name form</field>
+          <field name="model">department.names</field>
+          <field name="arch" type="xml">
+            <form>
+              <sheet>
+                <group>
+                  <field name="name_department"/>
+                  <field name="departmentId"/>
+                </group>
+              </sheet>
+            </form>
+          </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="department_name_action_window">
+            <field name="name">Department Name window</field>
+            <field name="res_model">department.names</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+    </data>
+</odoo>

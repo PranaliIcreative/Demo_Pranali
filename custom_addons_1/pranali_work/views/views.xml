@@ -1,0 +1,129 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="pranali_work_list">
+      <field name="name">pranali_work list</field>
+      <field name="model">pranali_work.pranali_work</field>
+      <field name="arch" type="xml">
+        <tree>
+          <header>
+            <button name="demo_button" type="object" string="custom button"/>
+          </header>
+          <field name="f_name"/>
+          <field name="value"/>
+          <field name="value2"/>
+          <field name="description"/>
+          <field name="age"/>
+          <field name="test_date1" widget="daterange"/>
+          <field name="test_date2" widget="daterange"/>
+          <field name="rating_avg" widget="priority"/>
+          <field name="f_name_id" widget="many2many_tags"/>
+          <field name="status"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="pranali_work_form">
+      <field name="name">pranali_work form</field>
+      <field name="model">pranali_work.pranali_work</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="demo_button" type="object" string="custom button"/>
+            <field name="status" widget="statusbar" options="{'clickable': 'true'} "
+                   statusbar_visible="registered,in_process,testing,completed"/>
+          </header>
+          <sheet>
+            <group>
+              <field name="f_name"/>
+              <field name="value"/>
+              <field name="value2"/>
+              <field name="description"/>
+              <field name="age"/>
+              <field name="test_date1" widget="daterange"
+                      options="{'related_end_date': 'test_date2'}"/>
+              <field name="test_date2" widget="daterange"/>
+              <field string="Rating" name="rating_avg" widget="rating"/>
+              <field name="f_name_id" widget="many2many_tags" options="{'color_field': 'color'}"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="pranali_work_action_window">
+      <field name="name">pranali_work window</field>
+      <field name="res_model">pranali_work.pranali_work</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="pranali_work_action_window_1">
+      <field name="name">pranali_work window</field>
+      <field name="res_model">pranali_work.pranali_work</field>
+      <field name="view_mode">kanban,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="pranali_work_action_window_2">
+      <field name="name">pranali_work window</field>
+      <field name="res_model">pranali_work.pranali_work</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <!-- server action to the one above -->
+
+<!--    <record model="ir.actions.server" id="pranali_work.action_server">-->
+<!--      <field name="name">pranali_work server</field>-->
+<!--      <field name="model_id" ref="model_pranali_work_pranali_work"/>-->
+<!--      <field name="state">code</field>-->
+<!--      <field name="code">-->
+<!--        action = {-->
+<!--          "type": "ir.actions.act_window",-->
+<!--          "view_mode": "tree,form",-->
+<!--          "res_model": model._name,-->
+<!--        }-->
+<!--      </field>-->
+<!--    </record>-->
+<!--    <record model="ir.actions.server" id="pranali_work.action_server_1">-->
+<!--      <field name="name">pranali_work server</field>-->
+<!--      <field name="model_id" ref="model_pranali_work_pranali_work"/>-->
+<!--      <field name="state">code</field>-->
+<!--      <field name="code">-->
+<!--        action = {-->
+<!--          "type": "ir.actions.act_window",-->
+<!--          "view_mode": "form",-->
+<!--          "res_model": model._name,-->
+<!--        }-->
+<!--      </field>-->
+<!--    </record>-->
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="pranali_work" id="pranali_work_menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="pranali_work_menu_1" parent="pranali_work_menu_root"/>
+    <menuitem name="Menu 2" id="pranali_work_menu_2" parent="pranali_work_menu_root"/>
+<!--    <menuitem name="Menu 3" id="pranali_work_menu_3" parent="pranali_work_menu_root"/>-->
+
+    <!-- actions -->
+
+    <menuitem name="List" id="pranali_work_menu_1_list" parent="pranali_work_menu_1"
+              action="pranali_work_action_window"/>
+    <menuitem name="Kanban and form view" id="pranali_work" parent="pranali_work_menu_2"
+              action="pranali_work_action_window_1"/>
+    <menuitem name="form view" id="pranali_work_2" parent="pranali_work_menu_2"
+              action="pranali_work_action_window_2"/>
+<!--    <menuitem name="Server to list" id="pranali_w" parent="pranali_work.menu_3"-->
+<!--              action="pranali_work.action_server_1"/>-->
+
+  </data>
+</odoo>

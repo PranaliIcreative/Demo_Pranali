@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <record id="department_course_subject_list" model="ir.ui.view" >
+            <field name="name">Subjects list</field>
+            <field name="model">department.course.subject</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="dep*artment_name_subject_id"/>
+                    <field name="departmentId_subject_id"/>
+                    <field name="course_subject_id"/>
+                    <field name="courseId_subject_id"/>
+                    <field name="subject_name"/>
+                    <field name="CourseId"/>
+<!--                    <field name="Department_Course_ids"/>-->
+
+                </tree>
+            </field>
+        </record>
+
+
+
+        <record model="ir.ui.view" id="department_course_subject_form">
+          <field name="name">Subjects form</field>
+          <field name="model">department.course.subject</field>
+          <field name="arch" type="xml">
+            <form>
+              <sheet>
+                  <widget
+                    name = "web_ribbon"
+                    text = "Archived"
+                    bg_color = "bg-success"
+                    attrs="{'invisible': [('CourseId', '=', 0)]}"
+
+                  />
+                <group>
+                    <field name="department_name_subject_id"/>
+                    <field name="departmentId_subject_id"/>
+                    <field name="course_subject_id"/>
+                    <field name="courseId_subject_id"/>
+                    <field name="subject_name"/>
+                    <field name="CourseId" record="True"/>
+                    <field name="user_signature" widget="signature" />
+<!--                    <field name="Department_Course_ids"/>-->
+                </group>
+              </sheet>
+            </form>
+          </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="department_course_subject_action_window">
+            <field name="name">Subjects window</field>
+            <field name="res_model">department.course.subject</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+    </data>
+</odoo>

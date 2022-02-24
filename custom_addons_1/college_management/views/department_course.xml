@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+        <record id="department_course_list" model="ir.ui.view" >
+            <field name="name">Department Course list</field>
+            <field name="model">department.course</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="department_name_course_id"/>
+                    <field name="departmentId_course_id"/>
+                    <field name="department_course"/>
+                    <field name="department_courseId"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+
+        <record model="ir.ui.view" id="department_course_form">
+          <field name="name">Department Course form</field>
+          <field name="model">department.course</field>
+          <field name="arch" type="xml">
+            <form>
+              <sheet>
+                <group>
+                  <field name="department_name_course_id"/>
+                    <field name="departmentId_course_id"/>
+                    <field name="department_course"/>
+                    <field name="department_courseId"/>
+                </group>
+              </sheet>
+            </form>
+          </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="department_course_action_window">
+            <field name="name">Department Course window</field>
+            <field name="res_model">department.course</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+    </data>
+</odoo>

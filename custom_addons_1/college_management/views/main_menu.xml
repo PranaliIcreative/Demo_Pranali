@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Top menu item -->
+
+        <menuitem name="College Management"
+                  id="college_management_menu_root"
+                  sequence="1"/>
+
+
+        <!-- menu categories -->
+
+        <menuitem name="Department"
+                  id="department_menu_root"
+                  parent="college_management_menu_root"
+                  sequence="0"/>
+
+        <!-- actions -->
+
+        <menuitem name="departments"
+                  id="department_college_name_list"
+                  parent="department_menu_root"
+                  action="department_name_action_window"
+                  sequence="0"/>
+
+        <menuitem name="Courses"
+                  id="course_department_college_name_list"
+                  parent="department_menu_root"
+                  action="department_course_action_window"
+                  sequence="1"/>
+        <menuitem name="Subjects"
+                  id="subject_course_department_college_name_list"
+                  parent="department_menu_root"
+                  action="department_course_subject_action_window"
+                  sequence="2"/>
+
+    </data>
+</odoo>
