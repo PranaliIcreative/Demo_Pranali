@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <record id="smart_view_list" model="ir.ui.view">
+            <field name="name">smart view list</field>
+            <field name="model">smart.view</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="mobile_number"/>
+                    <field name="height"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="smart_view_form" model="ir.ui.view">
+            <field name="name">smart view form</field>
+            <field name="model">smart.view</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_testing" type="object"
+                                class="oe_stat_button" icon="fa-eye">
+                                <div class="o_stat_info">
+<!--                                    <field name="calendar_event_count" class="o_stat_value"/>-->
+                                    <span class="o_stat_text" > Meeting</span>
+                                </div>
+                            </button>
+                        </div>
+                        <group>
+                            <field name="name"/>
+                            <field name="mobile_number"/>
+                            <field name="height"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="smart_view_action_window">
+            <field name="name">smart view window</field>
+            <field name="res_model">smart.view</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

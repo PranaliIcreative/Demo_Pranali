@@ -5,7 +5,7 @@
             <field name="model">department.course.subject</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="dep*artment_name_subject_id"/>
+                    <field name="department_name_subject_id"/>
                     <field name="departmentId_subject_id"/>
                     <field name="course_subject_id"/>
                     <field name="courseId_subject_id"/>

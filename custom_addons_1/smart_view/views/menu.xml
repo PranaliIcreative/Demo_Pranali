@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <!-- Top menu item -->
+        <menuitem name="Smart_View"
+                  id="smartview_menu_root"
+                  sequence="0"/>
+        <!-- menu categories -->
+        <menuitem name="categories"
+                  id="categories_menu_root"
+                  parent="smartview_menu_root"
+                  sequence="0"  />
+        <!-- actions -->
+        <menuitem name="conditions"
+                  id="conditions_action_menu_list"
+                  parent="categories_menu_root"
+                  action="smart_view_action_window"
+                  sequence="0"  />
+
+    </data>
+</odoo>
