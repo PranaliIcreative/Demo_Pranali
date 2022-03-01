@@ -40,7 +40,7 @@
                             <button name="%(wizard_demo_action_window)d" type="action"
                                     class="oe_stat_button" icon="fa-eye">
                                 <div class="o_stat_info">
-<!--                                    <field name="calendar_event_count" class="o_stat_value"/>-->
+                                    <!--                                    <field name="calendar_event_count" class="o_stat_value"/>-->
                                     <span class="o_stat_text">Meeting</span>
                                 </div>
                             </button>
@@ -51,14 +51,47 @@
                             <field name="value2"/>
                             <field name="description"/>
                             <field name="age"/>
-                            <field name="test_date1" widget="daterange"
-                                   options="{'related_end_date': 'test_date2'}"/>
-                            <field name="test_date2" widget="daterange"/>
-                            <field string="Rating" name="rating_avg" widget="rating"/>
-                            <field name="f_name_id" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="creation_date"/>
+
+
                         </group>
                     </sheet>
+                    <sheet>
+                        <notebook>
+                            <page string="Date">
+                                <group>
+                                    <field name="test_date1" widget="daterange"
+                                           options="{'related_end_date': 'test_date2'}"/>
+                                    <field name="test_date2" widget="daterange"/>
+                                </group>
+
+                            </page>
+                            <page string="info">
+                                <group>
+                                    <field string="Rating" name="rating_avg" widget="rating"/>
+                                    <field name="f_name_id" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                </group>
+
+                            </page>
+                        </notebook>
+                    </sheet>
+
                 </form>
+            </field>
+        </record>
+
+        <record id="pranali_work_search" model="ir.ui.view">
+            <field name="name">pranali work search</field>
+            <field name="model">pranali_work.pranali_work</field>
+            <field name="arch" type="xml">
+                <search string="find">
+                    <field name="f_name"/>
+                    <field name="description"/>
+                    <field name="age"/>
+<!--                    <group expand="0" string="Group By">-->
+<!--                        <filter string="Account Type" name="accounttype" domain="[]" context="{'group_by':'user_type_id'}"/>-->
+<!--                   </group>-->
+                </search>
             </field>
         </record>
 
@@ -74,7 +107,7 @@
         <record model="ir.actions.act_window" id="pranali_work_action_window_1">
             <field name="name">pranali_work window</field>
             <field name="res_model">pranali_work.pranali_work</field>
-            <field name="view_mode">kanban,form</field>
+            <field name="view_mode">tree,kanban,form</field>
         </record>
 
         <record model="ir.actions.act_window" id="pranali_work_action_window_2">

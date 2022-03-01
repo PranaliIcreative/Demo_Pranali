@@ -41,8 +41,8 @@
 
     <!-- actions -->
 
-    <menuitem name="popup" id="wizard_demo_menu_1_form" parent="pranali_work_menu_2"
-              action="wizard_demo_action_window"/>
+<!--    <menuitem name="popup" id="wizard_demo_menu_1_form" parent="pranali_work_menu_2"-->
+<!--              action="wizard_demo_action_window"/>-->
 
 
 </odoo>

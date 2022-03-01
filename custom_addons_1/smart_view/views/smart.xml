@@ -18,13 +18,16 @@
             <field name="model">smart.view</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="Conferm" type="object" string="conferm"/>
+                    </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
                             <button name="action_testing" type="object"
-                                class="oe_stat_button" icon="fa-eye">
+                                    class="oe_stat_button" icon="fa-eye">
                                 <div class="o_stat_info">
-<!--                                    <field name="calendar_event_count" class="o_stat_value"/>-->
-                                    <span class="o_stat_text" > Meeting</span>
+                                    <!--                                    <field name="calendar_event_count" class="o_stat_value"/>-->
+                                    <span class="o_stat_text">Meeting</span>
                                 </div>
                             </button>
                         </div>
@@ -32,8 +35,15 @@
                             <field name="name"/>
                             <field name="mobile_number"/>
                             <field name="height"/>
+                            <field name="last_name" />
+                            <field name="write_uid"/>
                         </group>
                     </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
                 </form>
             </field>
         </record>
